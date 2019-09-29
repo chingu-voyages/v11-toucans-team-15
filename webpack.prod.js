@@ -72,6 +72,7 @@ module.exports = {
     new CnameWebpackPlugin({
       domain: 'https://colma.surge.sh'
     }),
+
     new HtmlWebpackPlugin({
       hash: true,
       favicon: './src/assets/images/favicon.ico',
