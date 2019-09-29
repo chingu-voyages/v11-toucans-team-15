@@ -30,7 +30,6 @@ module.exports = {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' }, // This will resolve url() & @imports inside CSS
-          { loader: 'postcss-loader' }, // This we apply postCSS fixes like autoprefixer & minifying
           { loader: 'sass-loader',
             options: { implementation: require('sass') }
           }
@@ -67,8 +66,6 @@ module.exports = {
     ]
   },
   plugins: [
-    require('autoprefixer'),
-    require('cssnano'),
     new HtmlWebpackPlugin({
       hash: true,
       favicon: './src/assets/images/favicon.ico',
