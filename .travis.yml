@@ -1,0 +1,17 @@
+#fail asap when there is a failure
+matrix:
+  fast_finish: true
+
+# cache node modules
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - npm run build
+
+skip_cleanup: true
+
+deploy:
+  provider: surge
+  project: ./dist/
