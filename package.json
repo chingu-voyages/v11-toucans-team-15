@@ -4,7 +4,7 @@
   "description": "A HTML5 template.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"." ,
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -43,6 +43,7 @@
     "postcss-loader": "^3.0.0",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
+    "surge": "^0.21.3",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
