@@ -11,7 +11,7 @@ module.exports = {
     port: 9000
   },
   entry: {
-    app: './src/assets/javascripts/index.js'
+    app: './src/assets/javascripts/index'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -34,14 +34,13 @@ module.exports = {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' }, // This will resolve url() & @imports inside CSS
-          { loader: 'postcss-loader' }, // This we apply postCSS fixes like autoprefixer & minifying
           { loader: 'sass-loader',
             options: { implementation: require('sass') }
           }
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|ico|svg)$/,
         use: [{
           loader: 'file-loader',
           options: { outputPath: 'images' }
@@ -53,15 +52,31 @@ module.exports = {
           loader: 'file-loader',
           options: { outputPath: 'fonts' }
         }]
+      },
+      {
+        test: /\.html$/,
+        include: path.resolve(__dirname, "/src"),
+        use: [
+          {
+            loader: 'ejs-html-loader',
+            options: { htmlWebpackPlugin: HtmlWebpackPlugin }
+          },
+          {
+            loader: 'html-loader',
+            options: { interpolate: true }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
+      favicon: './src/assets/images/favicon.ico',
       title: 'Colma | Digital Agency HTML5 Template',
       path: path.join(__dirname, '../dist'),
-      filename: 'index.html'
+      template: path.resolve(__dirname, './src/views/home/home.html'),
+      // filename: 'index.html'
     }),
 
     new MiniCssExtractPlugin({
@@ -72,5 +87,4 @@ module.exports = {
       { from: 'src/assets/images', to: 'images' }
     ])
   ]
-
 };
