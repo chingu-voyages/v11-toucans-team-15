@@ -8,6 +8,7 @@ cache:
     - node_modules
 
 before_script:
+  - npm install
   - npm run build
 
 skip_cleanup: true
