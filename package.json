@@ -4,7 +4,7 @@
   "description": "A HTML5 template.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"." ,
+    "test": "echo \"Error: no test specified\".",
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -30,6 +30,7 @@
     "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
+    "cname-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
