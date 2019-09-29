@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -66,6 +67,12 @@ module.exports = {
     ]
   },
   plugins: [
+    require('autoprefixer'),
+    require('cssnano'),
+    new CnameWebpackPlugin({
+      domain: 'https://colma.surge.sh'
+    }),
+
     new HtmlWebpackPlugin({
       hash: true,
       favicon: './src/assets/images/favicon.ico',
